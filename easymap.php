@@ -8,6 +8,11 @@ function input($pesan){
 	echo "$green ( ! ) $pesan ( ! )\n\n";
 	echo " Cvar1984@P22DX:~# ";
 }
+function input2($pesan){
+	global $green;
+	echo "$green ( ! ) $pesan ( ! )\n\n";
+	echo " Cvar1984@P22DX:~# nmap ";
+}
 function getsource($url, $proxy) {
 $curl=curl_init($url);
 curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 GTB5");
@@ -77,12 +82,12 @@ echo " |_____(14) Nmap CSRF Scan >> \n";
 echo " |____(15) Nmap Webdav Scan >> \n";
 echo " |___(16) Nmap SMTP Brute >> \n";
 echo " |__(17) Nmap Vulscan >> \n";
-echo " |_(EX) Exit >> \n";
+echo " |_(NM) Nmap Manual >> \n";
 echo "\n";
 echo "$red =========================== Cvar1984 ))=====(@)> \n";
 input("Chose Your Action");
 $pilih=trim(fgets(STDIN, 1024));
-if(!in_array($pilih, array('01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','EX','ex',), true)) {
+if(!in_array($pilih, array('01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','NM','nm',), true)) {
 echo "\n $red ( ! ) Input false ( ! ) $green\n";
 trim(fgets(STDIN, 1024));
 goto menu;
@@ -318,8 +323,14 @@ system("nmap -sV -T4 --script vulscan/vulscan.nse -v $host");
 echo "\n ( ! ) Press Enter ( ! )";
 trim(fgets(STDIN, 1024));
 goto menu;
-}elseif($pilih == "e" or "E" ) {
-die();
+}elseif($pilih == "NM" or "nm") {
+input2("Command");
+$cmd=trim(fgets(STDIN, 1024));
+echo " ( i ) Press Any Key To Info ( i )";
+system("nmap $cmd");
+echo "\n ( ! ) Press Enter ( ! )";
+trim(fgets(STDIN, 1024));
+goto menu;
 }else {
 goto input;
 }

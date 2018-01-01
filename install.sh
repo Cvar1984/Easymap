@@ -13,5 +13,5 @@ apt-get install lynx
 apt-get install curl
 apt-get install git
 git clone https://github.com/scipag/vulscan
-mv -r vulscan /data/data/com.termux/files/usr/share/nmap/scripts/vulscan
-mv -r vulscan /usr/share/nmap/scripts/vulscan
+mv -f vulscan /data/data/com.termux/files/usr/share/nmap/scripts/vulscan
+mv -f vulscan /usr/share/nmap/scripts/vulscan
