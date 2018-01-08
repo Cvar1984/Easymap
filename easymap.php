@@ -5,13 +5,13 @@ error_reporting(0);
 @header('Content-Type: text/html; charset=UTF-8');
 function input($pesan){
 	global $green;
-	echo "$green ( ! ) $pesan ( ! )\n\n";
-	echo " Cvar1984@P22DX:~# ";
+	echo "$green ( ! ) $pesan ( ! )\n";
+	echo "\n Cvar1984@P22DX:~# ";
 }
 function input2($pesan){
 	global $green;
-	echo "$green ( ! ) $pesan ( ! )\n\n";
-	echo " Cvar1984@P22DX:~# nmap ";
+	echo "$green ( ! ) $pesan ( ! )\n";
+	echo "\n Cvar1984@P22DX:~# nmap ";
 }
 function getsource($url, $proxy) {
 $curl=curl_init($url);
@@ -22,7 +22,7 @@ $proxy=explode(':', autoprox());
 curl_setopt($curl, CURLOPT_PROXY, $proxy[0]);
 curl_setopt($curl, CURLOPT_PROXYPORT, $proxy[1]);
 }
-$content = curl_exec($curl);
+$content=curl_exec($curl);
 curl_close($curl);
 return $content;
 }
@@ -72,7 +72,7 @@ echo " |____(04) GOOGLE >> \n";
 echo " |_____(05) Curl Grab Banner >> \n";
 echo " |___\__(06) Quick Find >> \n";
 echo " |____@__(07) Admin Finder++ >> \n";
-echo " |___/____(08) Nmap wp-brute >> \n";
+echo " |___/____(08) Nmap WP-brute >> \n";
 echo " |__|__\___(09) SQL-I Scan >> \n";
 echo " |__|__/___(10) Bing >> \n";
 echo " |___\____(11) Nmap Hearbeat >> \n";
@@ -87,16 +87,17 @@ echo "\n";
 echo "$red =========================== Cvar1984 ))=====(@)> \n";
 input("Chose Your Action");
 $pilih=trim(fgets(STDIN, 1024));
-if(!in_array($pilih, array('01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','NM','nm',), true)) {
+if(!in_array($pilih, array('01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','NM'), true)) {
 echo "\n $red ( ! ) Input false ( ! ) $green\n";
 trim(fgets(STDIN, 1024));
 goto menu;
 }else {
-if($pilih == "01" ) {
-system("git pull");
+if($pilih == "01") {
+system("git clone https://github.com/Cvar1984/Easymap");
+system("mv -f Easymap ../Easymap");
 goto menu;
 }elseif($pilih == "02") {
-echo " ( ! ) CTRL + X For Info ( ! )";
+echo " ( ! ) Press Any Key For Info ( ! )";
 system("nmap -T4 -sV --script http-sql-injection.nse $host -v");
 echo "\n ( ! ) Press Enter ( ! )";
 trim(fgets(STDIN, 1024));
@@ -207,7 +208,7 @@ trim(fgets(STDIN, 1024));
 goto menu;
 }
 }elseif($pilih == "08") {
-echo " ( i ) Press Any Key To Info ( i )";
+echo " ( i ) Press Any Key For Info ( i )";
 system("nmap -T4 -sV http-wordpress-brute.nse $host -v");
 echo "\n ( ! ) Press Enter ( ! )";
 trim(fgets(STDIN, 1024));
@@ -219,7 +220,7 @@ $lwwww=str_replace("www.", "", $host);
 echo "( ! ) Scanning : $hostsl" . "$host \n";
 $lulzurl=$reallink;
 $html=file_get_contents($lulzurl);
-$dom= new DOMDocument;
+$dom = new DOMDocument;
 @$dom->loadHTML($html);
 $links=$dom->getElementsByTagName('a');
 $vlnk=0;
@@ -282,57 +283,55 @@ trim(fgets(STDIN, 1024));
 goto menu;
 }
 }elseif($pilih == "11") {
-echo " ( i ) Press Any Key To Info ( i )";
+echo " ( i ) Press Any Key For Info ( i )";
 system("nmap -d --script ssl-heartbleed.nse --script-args vulns.showall -sV $host");
 echo "\n ( ! ) Press Enter ( ! )";
 trim(fgets(STDIN, 1024));
 goto menu;
-}elseif($pilih =="12") {
-echo " ( i ) Press Any Key To Info ( i )";
+}elseif($pilih == "12") {
+echo " ( i ) Press Any Key For Info ( i )";
 system("nmap -sV -T4 --script whois-domain.nse -v -d $host");
 echo "\n ( ! ) Press Enter ( ! )";
 trim(fgets(STDIN, 1024));
 goto menu;
 }elseif($pilih == "13") {
-echo " ( i ) Press Any Key To Info ( i )";
+echo " ( i ) Press Any Key For Info ( i )";
 system("nmap -sV -T4 --script ssh-brute.nse $host -d -v -Pn");
 echo "\n ( ! ) Press Enter ( ! )";
 trim(fgets(STDIN, 1024));
 goto menu;
 }elseif($pilih == "14") {
-echo " ( i ) Press Any Key To Info ( i )";
+echo " ( i ) Press Any Key For Info ( i )";
 system("nmap -sV -Pn -T4 --script http-csrf.nse -v -d $host");
 echo "\n ( ! ) Press Enter ( ! )";
 trim(fgets(STDIN, 1024));
 goto menu;
 }elseif($pilih == "15") {
-echo " ( i ) Press Any Key To Info ( i )";
+echo " ( i ) Press Any Key For Info ( i )";
 system("nmap -sV -T4 --script http-webdav-scan.nse -v -d -Pn $host");
 echo "\n ( ! ) Press Enter ( ! )";
 trim(fgets(STDIN, 1024));
 goto menu;
 }elseif($pilih == "16") {
-echo " ( i ) Press Any Key To Info ( i )";
+echo " ( i ) Press Any Key For Info ( i )";
 system("nmap -sV -T4 --script smtp-brute.nse $host -v");
 echo "\n ( ! ) Press Enter ( ! )";
 trim(fgets(STDIN, 1024));
 goto menu;
 }elseif($pilih == "17") {
-echo " ( i ) Press Any Key To Info ( i )";
+echo " ( i ) Press Any Key For Info ( i )";
 system("nmap -sV -T4 --script vulscan/vulscan.nse -v $host");
 echo "\n ( ! ) Press Enter ( ! )";
 trim(fgets(STDIN, 1024));
 goto menu;
-}elseif($pilih == "NM" or "nm") {
+}elseif($pilih == "NM") {
 input2("Command");
 $cmd=trim(fgets(STDIN, 1024));
-echo " ( i ) Press Any Key To Info ( i )";
+echo " ( i ) Press Any Key For Info ( i )";
 system("nmap $cmd");
 echo "\n ( ! ) Press Enter ( ! )";
 trim(fgets(STDIN, 1024));
 goto menu;
-}else {
-goto input;
 }
 }
 ?>
