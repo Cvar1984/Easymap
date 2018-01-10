@@ -57,7 +57,7 @@ goto input;
 echo "\n$red ( ! ) URL Format false ( ! ) \n";
 goto input;
 }else {
-$hostsl = "";
+$hostsl="";
 goto menu;
 }
 menu:
@@ -320,7 +320,7 @@ trim(fgets(STDIN, 1024));
 goto menu;
 }elseif($pilih == "17") {
 echo " ( i ) Press Any Key For Info ( i )";
-system("nmap -sV -T4 --script vulscan/vulscan.nse -v $host");
+system("nmap -sV -T4 --script vulscan/vulscan.nse -v $host -oN log.txt");
 echo "\n ( ! ) Press Enter ( ! )";
 trim(fgets(STDIN, 1024));
 goto menu;
