@@ -41,7 +41,7 @@ echo "\n \e[36m
  Code    : PHP
  Github  : http://github.com/Cvar1984
  Team    : Blackhole Security
- Version : 1.4 ( Alpha )
+ Version : 1.5 ( Alpha )
  Date    : 31-12-2017";
 }
 input:
@@ -65,14 +65,14 @@ asciiart();
 echo "\n";
 echo "$red =========================== Cvar1984 ))=====(@)> \n";
 echo "\n$green";
-echo " |_(01) Update >> \n";
+echo " |_(01) Nmap All-CVE >> \n";
 echo " |__(02) Nmap SQL-I Scan >> \n";
 echo " |___(03) Hydra Brute FTP >> \n";
 echo " |____(04) GOOGLE >> \n";
 echo " |_____(05) Curl Grab Banner >> \n";
 echo " |___\__(06) Quick Find >> \n";
 echo " |____@__(07) Admin Finder++ >> \n";
-echo " |___/____(08) Nmap WP-brute >> \n";
+echo " |___/____(08) Nmap Wordpress >> \n";
 echo " |__|__\___(09) SQL-I Scan >> \n";
 echo " |__|__/___(10) Bing >> \n";
 echo " |___\____(11) Nmap Hearbeat >> \n";
@@ -93,8 +93,10 @@ trim(fgets(STDIN, 1024));
 goto menu;
 }else {
 if($pilih == "01") {
-system("git clone https://github.com/Cvar1984/Easymap");
-system("mv -f Easymap ../Easymap");
+echo " ( ! ) Press Any Key For Info ( ! )";
+system("nmap -T4 --script http-vuln-* $host -v");
+echo "\n ( ! ) Press Enter ( ! )";
+trim(fgets(STDIN, 1024));
 goto menu;
 }elseif($pilih == "02") {
 echo " ( ! ) Press Any Key For Info ( ! )";
@@ -209,7 +211,7 @@ goto menu;
 }
 }elseif($pilih == "08") {
 echo " ( i ) Press Any Key For Info ( i )";
-system("nmap -T4 -sV http-wordpress-brute.nse $host -v");
+system("nmap -T4 -sV http-wordpress-* $host -v");
 echo "\n ( ! ) Press Enter ( ! )";
 trim(fgets(STDIN, 1024));
 goto menu;
