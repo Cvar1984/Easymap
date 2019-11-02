@@ -1,4 +1,5 @@
 # Easymap
+> Nmap Shortcut
 ## Install
 ```sh
 sh install.sh
