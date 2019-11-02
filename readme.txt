@@ -1,8 +1,10 @@
-## INSTALL ##
-
-root@localhost:~# sh install.sh
-
-##   RUN   ##
-
-root@localhost:~# php easymap.php
+# Easymap
+## Install
+```sh
+sh install.sh
+```
+## Run
+```sh
+php easymap.php
+```
 
